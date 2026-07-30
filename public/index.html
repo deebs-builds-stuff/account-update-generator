@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Account Update Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Account Update Generator</h1>
+      <p class="subtitle">Turn the facts you already have into a ready-to-send account update.</p>
+    </header>
+
+    <main class="layout">
+      <form id="update-form" class="panel">
+        <div class="field">
+          <label for="apiKey">Anthropic API key <span class="req">*</span></label>
+          <input type="password" id="apiKey" name="apiKey" autocomplete="off" placeholder="sk-ant-..." />
+          <p class="hint">
+            Used only for this request, never stored or logged. Get a key at
+            <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>.
+          </p>
+        </div>
+
+        <div class="field">
+          <label for="accountName">Account name <span class="req">*</span></label>
+          <input type="text" id="accountName" name="accountName" placeholder="Acme Corp" required />
+        </div>
+
+        <div class="field">
+          <label for="recentActivity">Recent activity <span class="req">*</span></label>
+          <textarea id="recentActivity" name="recentActivity" rows="4"
+            placeholder="What's happened recently with this account?" required></textarea>
+        </div>
+
+        <div class="field">
+          <label for="followUp">Follow-up from last update <span class="opt">(optional)</span></label>
+          <textarea id="followUp" name="followUp" rows="3"
+            placeholder="e.g. a support ticket or frustration that needed addressing, and its status"></textarea>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="riskStatus">Risk / health</label>
+            <select id="riskStatus" name="riskStatus">
+              <option value="stable">Stable</option>
+              <option value="growing">Growing</option>
+              <option value="at risk">At risk</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="renewalDate">Renewal date <span class="opt">(optional)</span></label>
+            <input type="date" id="renewalDate" name="renewalDate" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="riskNotes">Risk / health notes <span class="opt">(optional)</span></label>
+          <textarea id="riskNotes" name="riskNotes" rows="2" placeholder="Any context behind the status above"></textarea>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="tone">Who's this for</label>
+            <select id="tone" name="tone">
+              <option value="manager">Manager</option>
+              <option value="director_exec">Director / Exec</option>
+              <option value="team_qbr">Team QBR</option>
+              <option value="peer">Peer</option>
+              <option value="cross_functional">Cross-functional</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="style">Output style</label>
+            <select id="style" name="style">
+              <option value="bullet_brief">Bullet brief</option>
+              <option value="narrative_paragraph">Narrative paragraph</option>
+              <option value="two_sentences">Two sentences max</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" id="generate-btn">Generate update</button>
+        <p id="error" class="error" hidden></p>
+      </form>
+
+      <section class="panel output-panel">
+        <div class="output-header">
+          <label for="output">Update</label>
+          <button type="button" id="copy-btn" disabled>Copy</button>
+        </div>
+        <textarea id="output" rows="18" placeholder="Your generated update will appear here, editable before you send it."></textarea>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
