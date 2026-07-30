@@ -16,10 +16,12 @@ TONE_GUIDANCE = {
     "director_exec": "Director/Exec. High-level, outcome- and risk-focused, minimal jargon, gets to the point fast.",
     "team_qbr": "Team QBR audience. Allowed to be longer and more detailed than other audiences — include context and specifics.",
     "peer": "Peer CSM/colleague. Conversational, collegial, assumes shared context.",
-    "cross_functional": "Cross-functional (product, sales, etc.). Assume no CS-specific context; spell out impact in terms relevant to their function.",
+    "sales": "Sales counterpart. Frame around expansion signal, renewal risk, and upsell timing — the commercial angle, not day-to-day CS detail.",
+    "cross_functional": "Cross-functional (product, marketing, etc.). Assume no CS-specific context; spell out impact in terms relevant to their function.",
 }
 
 STYLE_GUIDANCE = {
+    "one_sentence": "One sentence: a single sentence, the single most important thing to know, nothing else.",
     "bullet_brief": "Bullet brief: short bulleted list, scannable, no long sentences.",
     "narrative_paragraph": "Narrative paragraph: flowing prose, one or two short paragraphs.",
     "two_sentences": "Two sentences max: extremely concise, at most two sentences total, cut everything non-essential.",
