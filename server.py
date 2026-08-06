@@ -11,6 +11,8 @@ app = Flask(__name__, static_folder="public", static_url_path="")
 
 MODEL = "claude-sonnet-5"
 
+DEMO_KEY_EXPIRES = date(2026, 8, 13)
+
 TONE_GUIDANCE = {
     "manager": "Direct manager. Practical, clear on status/asks, no fluff, comfortable level of detail.",
     "director_exec": "Director/Exec. High-level, outcome- and risk-focused, minimal jargon, gets to the point fast.",
@@ -95,7 +97,11 @@ def generate():
     if not data.get("recentActivity", "").strip():
         return jsonify({"error": "Recent activity is required."}), 400
 
-    api_key = data.get("apiKey", "").strip() or os.environ.get("ANTHROPIC_API_KEY")
+    client_key = data.get("apiKey", "").strip()
+    if not client_key and date.today() > DEMO_KEY_EXPIRES:
+        return jsonify({"error": "The shared demo key has expired. Add your own Anthropic API key above to keep using this."}), 403
+
+    api_key = client_key or os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         return jsonify({"error": "Add your Anthropic API key above, then try again."}), 400
 
