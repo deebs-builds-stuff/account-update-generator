@@ -16,10 +16,10 @@
     <main class="layout">
       <form id="update-form" class="panel">
         <div class="field">
-          <label for="apiKey">Anthropic API key <span class="req">*</span></label>
-          <input type="password" id="apiKey" name="apiKey" autocomplete="off" placeholder="sk-ant-..." />
+          <label for="apiKey">Anthropic API key <span class="opt">(optional)</span></label>
+          <input type="password" id="apiKey" name="apiKey" autocomplete="off" placeholder="Leave blank to use the demo key" />
           <p class="hint">
-            Used only for this request, never stored or logged. Get a key at
+            Only needed if you want to use your own key instead of the shared demo key. Never stored or logged. Get a key at
             <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>.
           </p>
         </div>
