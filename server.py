@@ -11,7 +11,7 @@ app = Flask(__name__, static_folder="public", static_url_path="")
 
 MODEL = "claude-sonnet-5"
 
-DEMO_KEY_EXPIRES = date(2026, 8, 13)
+DEMO_KEY_EXPIRES = date(2026, 9, 18)
 
 TONE_GUIDANCE = {
     "manager": "Direct manager. Practical, clear on status/asks, no fluff, comfortable level of detail.",
